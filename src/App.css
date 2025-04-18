@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bg: #000000;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --text-color: #333;
+  --header-bg: #282c34;
+  --header-text: white;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+body.overlay-active {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.App-header {
+  background-color: var(--header-bg);
+  padding: 1.25rem;
+  color: var(--header-text);
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--overlay-bg);
+  z-index: 105;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(3px);
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    padding: 1rem;
+  }
+  
+  main {
+    padding: 0.5rem;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+.side-panel-open main {
+  margin-right: 33%;
+  transition: margin-right 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .side-panel-open main {
+    margin-right: 0;
+  }
+}

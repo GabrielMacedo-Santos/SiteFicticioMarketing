@@ -1,0 +1,37 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Para ocupar toda a altura da página */
+  text-align: center; /* Centraliza o texto */
+  padding: 0 20px;
+  background-color: #000000; /* Cor de fundo preta */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-title {
+  font-size: 36px;
+  color: #b68e1f;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.about-description {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 800px; /* Limita a largura para não ficar muito esticado */
+}
+
+.about-description:first-of-type {
+  margin-top: 40px; /* Adiciona um espaço maior no primeiro parágrafo */
+}
